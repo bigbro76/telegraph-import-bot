@@ -40,9 +40,7 @@ bot.on('text', optional((ctx) => parse(ctx.message.text).protocol, async (ctx) =
     if (!imported) {
       return ctx.reply("Can't import provided url 😕")
     }
-    ctx.reply(
-      `<b>Import complete</b>\n${imported.page.url}`,
-      Extra.HTML()
+    ctx.reply(`<b>Import complete</b>\n${imported.page.url}`, Extra.HTML()
         .webPreview(false)
         .markup(Markup.inlineKeyboard([Markup.urlButton('Login for edit', imported.account.auth_url)]))
     )

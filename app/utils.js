@@ -61,7 +61,8 @@ function normalizeHeading (tag) {
       return tag
   }
 }
-function tag (name, attrs = {}, children) {
+
+function makeTag (name, attrs = {}, children) {
   const result = { tag: normalizeHeading(name) }
   if (attrs.href) {
     result.attrs = { href: attrs.href }
@@ -96,7 +97,7 @@ function extractSelector (selector, extractFn = extractSelector) {
   if (Array.isArray(node.children) && node.children.length > 0) {
     childs = node.children.map((elem) => extractFn(elem, extractFn)).filter(x => x)
   }
-  return tag(node.name.toLowerCase(), node.attribs, childs)
+  return makeTag(node.name.toLowerCase(), node.attribs, childs)
 }
 
 module.exports.Extractor = Extractor
