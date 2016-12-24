@@ -7,7 +7,8 @@ const Telegraph = require('telegra.ph')
 const extractors = [
   require('./extractors/androidpolice.com'),
   require('./extractors/vc.ru'),
-  require('./extractors/tjournal.ru')
+  require('./extractors/tjournal.ru'),
+  require('./extractors/pikabu.ru')
 ]
 
 async function importPage (url) {
