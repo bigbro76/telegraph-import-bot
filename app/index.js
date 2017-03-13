@@ -12,9 +12,10 @@ const extractors = [
 ]
 
 async function importPage (url) {
-  const extractor = extractors.find((extractor) => extractor.canHandle(url))
+const extractor = extractors.find((extractor) => extractor.canHandle(url))
   if (!extractor) {
     return
+
   }
   const client = new Telegraph()
   const account = await client.createAccount('Telegraph Importer Bot')
